@@ -131,6 +131,50 @@ if var myString2: String = myString {
     print(myString2)
 }
 
+//Recursive
+//Sum (takes an Integer N and returns sum of all consecutive postive integers from N to 1)
+
+func sum(n:Int) -> Int{
+    if n == 0 {
+        return 0
+    }
+        return n + sum(n-1)
+}
+
+sum(3)
+sum(5)
+//n + (n-1) + (n-2)
+
+
+//Write a function with the following prototype that returns the sum of the digits of an integer.
+//i.e. func sumOfDigits(945) = 9 + 4 + 5
+//900 + 40 + 5 -> 900/100 = 9, 40/10 = 4, 5
+
+
+func sumOfDigits(n:Int) -> Int{
+    if n >= 0 && n <= 9 {
+        return n
+    }
+        let rem = n % 10 //945 % 10 = 5
+        let takeRem = n - rem
+        let divide = takeRem/10
+        return rem + sumOfDigits(divide)
+}
+
+sumOfDigits(5555)
+
+//Write a recursive function (use no while loops or for loops) that prints all the elements of an array of integers, one per line. The parameters to the function should be int a[], and int size.
+
+let arrayOfInts = [5,10,15,20,25,30]
+
+func printAllElements(array:[Int], n:Int){
+    if n < array.count{
+        
+    }
+}
+
+
+
 
 
 
