@@ -109,3 +109,33 @@ myTuple.min
 myTuple.max
 
 //tuples not used for persistance. better to use class or struct
+
+//OPTIONALS handles errors when functions might return a nil value
+
+var myString: String? = "Hello World"
+
+myString = nil
+
+//adding ? declares a variable as an optional so variable may have a value or is nil preventing compile or runtime errors
+// restrictions 
+
+// var myString1: String = myString  // Cannot assign an optional variable to non-optional variable
+
+//Unwrapping an optional 
+if myString != nil {
+var myString1: String = myString!
+} //i know my optional value is not nil so assign it to non-optional
+
+//Optionals are automatically unwrapped in an IF statement
+if var myString2: String = myString {
+    print(myString2)
+}
+
+
+
+
+
+
+
+
+
