@@ -58,3 +58,54 @@ if !hasPostOffice {
 //message = population < 1000 ? "\(population) is a small town" : "\(population) is a big town"
 //print(message)
 
+//TUPLES
+
+let http404Error = (errCode:404, errValue:"Not found")
+print(http404Error)
+
+//accessing - using index notation
+
+http404Error.0
+http404Error.1
+
+//accessing - using name method
+
+http404Error.errCode
+http404Error.errValue
+
+var marks = (physics: 87, chemistry: 90, math: 93)
+marks.chemistry
+marks.physics
+marks.math
+
+let (myErrCode, myErrValue) = http404Error
+myErrCode
+myErrValue
+
+let (otherErrCode, _) = http404Error  //use underscore - decompose
+otherErrCode
+
+func minMax(arrayInput: [Int]) -> (min: Int, max: Int){ //takes in array and returns a tuple
+    var currentMin = arrayInput[0] //set currentMin to first value in array
+    var currentMax = arrayInput[0] //alse set current max
+    for value in arrayInput[1..<arrayInput.count]{ // walk through array starting at index 1
+        if value < currentMin {
+            currentMin = value     //if value is less than currentMin make that currentMin
+        } else if value > currentMax {
+            currentMax = value    //if value is greater than currentMax make that currentMax
+        }
+    }
+    return (currentMin, currentMax)
+}
+
+let myNumbers = [45, 23, 1, 89, 1000]
+let (myMin, myMax) = minMax(myNumbers)  //let(tuple) = (tuple)
+
+myMin
+myMax
+
+let myTuple = minMax(myNumbers)
+myTuple.min
+myTuple.max
+
+//tuples not used for persistance. better to use class or struct
