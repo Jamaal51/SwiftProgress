@@ -100,7 +100,9 @@ struct StringHashSet: SetProtocol {
         }
     mutating func remove(item: String) {
         }
-    func contains(item: String) -> Bool{return false}
+    func contains(item: String) -> Bool{
+    return false
+    }
     //CustomStringConvertible
     
     var description
@@ -123,6 +125,8 @@ func startsWithA(item: String) -> Bool{
 }
 
 items.filter(startsWithA)
+
+let furniture = ["Chair", "Desk"]
 
 
 
