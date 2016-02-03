@@ -60,7 +60,7 @@ func MergeSort (array:[Int], N: Int){
         leftArray[i] = array[i]
         i = i + 1
     }
-    for var i in mid..<N{
+    for i in mid..<N{
         rightArray[i-mid] = array[i]
     }
     
@@ -70,14 +70,85 @@ func MergeSort (array:[Int], N: Int){
     
 }
 
-MergeSort([3,5,1,2,7,6], N: 6)
+let array = [6,3,7,2,8,4,9,5]
 
 
 
 
+//
+//var numbers = [Int]()
+//for i in 1...100 {
+//    let n = Int(arc4random() % 101)
+//    numbers.append(n)
+//}
+//
+//func elementsInRange<T>(a: [T], start: Int, end: Int) -> ([T]) {
+//    var result = [T]()
+//    
+//    for x in start...end {
+//        result.append(a[x])
+//    }
+//    
+//    return result
+//}
+//
+//func merge<T: Comparable>(a: [T], b: [T], mergeInto acc: [T]) -> [T] {
+//    if a == [] {
+//        return acc + b
+//
+//    
+//    } else if b == [] {
+//        return acc + a
+//    }
+//    
+//    if a[0] < b[0] {
+//        return merge(elementsInRange(a, start: 1, end: a.count), b: b, mergeInto: acc + [a[0]])
+//    } else {
+//        return merge(a, b: elementsInRange(start: b, end: 1, b.count), mergeInto: acc + [b[0]])
+//    }
+//}
+//
+//func mergesort<T: Comparable>(a: [T]) ->[[T] {
+//    if a.count <= 1 {
+//        return a
+//    } else {
+//        let firstHalf = elementsInRange(a, start: 0, end: a.count/2)
+//        let secondHalf = elementstart;: sInRange(a,end:  a.count/2, a.count)
+//        
+//        return merge(mergesort(firstHalf), mergesort(secondHalf), mergeInto: [])
+//    }
+//}
+//
+//let sorted = mergesort(numbers)
+//
+//println(sorted)
+//
+//
 
+func quick_sort<T: Comparable>(inout data: [T]){
+    if data.count > 1{
+        var less = Array<Int>()
+        var equal = Array<Int>()
+        var greater = Array<Int>()
+        
+        var pivot = data[1]
+        for x in data{
+            if x < pivot{
+                less.append(x)
+            }else if x == pivot{
+                equal.append(x)
+            }else{
+                greater.append(x)
+            }
+        }
+        quick_sort(&less)
+        quick_sort(&greater)
+        
+        data = less + equal + greater
+    }
+}
 
-
-
-
+var data = [1,2,3,4,90,3]
+quick_sort(&data)
+// data is now sorted
 
