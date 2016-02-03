@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios'>
     <pages>
         <page name='2.Variables'/>
-        <page name='Untitled Page 2'/>
+        <page name='4. Collections and Tuples'/>
+        <page name='3.Strings'/>
     </pages>
 </playground>
