@@ -3,6 +3,7 @@
     <pages>
         <page name='2.Variables'/>
         <page name='4. Collections and Tuples'/>
+        <page name='Untitled Page'/>
         <page name='3.Strings'/>
     </pages>
 </playground>
