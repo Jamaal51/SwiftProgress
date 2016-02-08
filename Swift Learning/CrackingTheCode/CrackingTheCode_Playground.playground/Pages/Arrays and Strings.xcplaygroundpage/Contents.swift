@@ -48,14 +48,23 @@ func arePermutations (str1: String, str2: String) -> Bool{
 }
 
 arePermutations("cat", str2: "tac")
-
 arePermutations("doog", str2: "god")
-
 arePermutations("bhui", str2: "uhib")
-
 arePermutations("taac", str2: "catt")
 
+//1.3 Write a method to replace all the spaces in a string with %20
 
+func swapSpaces (str:String) -> String{
+    
+    return str.stringByReplacingOccurrencesOfString(" ", withString: "%20")
+    
+}
+
+swapSpaces("Bob Miller ")
+
+// 1.4 Given a string, write a function to check if it is a premutation of a palindrome
+//ie: input: "taco cat"
+//   output: "cato tac"
 
 
 
