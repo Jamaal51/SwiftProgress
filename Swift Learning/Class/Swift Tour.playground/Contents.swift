@@ -1,7 +1,7 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
-
+/*
 var str = "Hello, playground"
 let str2 = "Other hello, playground"
 
@@ -212,6 +212,7 @@ s.pop()
 
 isBalanced("())")
 
+
 //Hash Table
 
 func hash(key: String) -> Int {
@@ -236,6 +237,25 @@ let start = 2
 let connectedNodes = graph[start]
 let next = connectedNodes![0]
 let nextConnectedNodes = graph[next]
+
+
+"a".hash
+"b".hash
+
+*/
+
+let str1 = "baseball"
+
+
+
+let characters = Array(str1.characters)
+print(characters)
+
+let char1 = characters[0]
+
+
+
+
 
 
 

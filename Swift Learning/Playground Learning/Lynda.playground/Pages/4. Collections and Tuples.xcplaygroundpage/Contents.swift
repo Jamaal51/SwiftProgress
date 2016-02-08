@@ -199,8 +199,8 @@ var playerScores: ([Int], firstName: String, lastName:String) //array of ints, s
 playerScores = ([134_000, 128_500, 156_250], "Scott", "Gardner")
 
 let highScore = playerScores.0.maxElement()!
- 
 
+print("\(playerScores.firstName) acheived a high score of \(highScore).")
 
 //: [Next](@next)
  
