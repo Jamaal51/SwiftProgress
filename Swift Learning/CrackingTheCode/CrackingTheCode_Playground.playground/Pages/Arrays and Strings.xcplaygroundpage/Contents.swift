@@ -66,6 +66,74 @@ swapSpaces("Bob Miller ")
 //ie: input: "taco cat"
 //   output: "cato tac"
 
+///////
+
+var bostonMarathonResults: [Int : [String:String]] = [
+    1:[
+        "name": "Desisa",
+        "country": "ETH",
+        "finishingTime": "2:09:17"
+    ],
+    2:[
+        "name": "Kris",
+        "country": "BOL",
+        "finishingTime": "2:09:50"
+    ]
+]
+
+let firstPlaceName = bostonMarathonResults[1]?["name"]  //Optional Chaining
+
+//Defining Sets
+
+var teachers = Set<String>()
+
+var students: Set = ["Charlotte","Laura","Kayleigh","Kayla","Boz","Jake","Charlotte"]
+
+//set type can be infered. Duplicates will be removed
+
+var staff: Set<String> = []
+
+//perform set operations
+
+let campAttendees: Set = ["Charlotte", "Laura", "Lilli", "Carlee", "Nathan"]
+
+//print(students.intersect(campAttendees)) // contained in both sets
+//print(students.exclusiveOr(campAttendees)) //not contained in both sets
+//print(students.union(campAttendees)) //contains both with duplicates removed
+//print(students.subtract(campAttendees))
+
+students.insert("Bob")
+
+let indexOfBob = students.indexOf("Bob")
+
+students.removeAtIndex(indexOfBob!)
+
+students.unionInPlace(campAttendees)
+
+//print(students)
+
+//Nesting Sets
+
+let stringSet1: Set = ["a", "b", "c"]
+let stringSet2: Set = ["d", "e", "f"]
+let integerSet: Set = [1, 2, 3]
+let setOfStringSets: Set = [stringSet1, stringSet2] //cannot nest sets of different types ie integerSet
+
+//Defining Tuples
+
+let httpStatus200 = (200, "ok")
+
+var numbers: (Int, Float, Double) = (1, 2.3, 3.4)
+
+var httpStatus: (Int, String?)?
+
+var playerScores: ([Int], firstName: String, lastName:String) //array of ints, string, string
+
+playerScores = ([134_000, 128_500, 156_250], "Scott", "Gardner")
+
+let highScore = playerScores.0.maxElement()!
+
+print("\(playerScores.firstName) acheived a high score of \(highScore).")
 
 
 
