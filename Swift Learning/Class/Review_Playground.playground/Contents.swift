@@ -155,5 +155,19 @@ func insertionSort<T: Comparable>(inout values: [T]){    //anything to the left 
 var values = [4,2,5,3,1]
 insertionSort(&values)
 
+func quickSort<T: Comparable> (inout values: [T]){
+    let pivot = values[values.endIndex-1]
+    
+    for i in 0..<(values.count - 1){
+        
+        
+    }
+    
+    
+}
+
+
+
+
 
 
