@@ -4,6 +4,7 @@
         <page name='2.Variables'/>
         <page name='4. Collections and Tuples'/>
         <page name='5. Operators'/>
+        <page name='6. Control Flow'/>
         <page name='3.Strings'/>
     </pages>
 </playground>

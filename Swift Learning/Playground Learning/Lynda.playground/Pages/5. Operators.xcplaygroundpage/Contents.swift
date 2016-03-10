@@ -80,6 +80,63 @@ let classBInstance = item2 as! ClassB
 classBInstance.classBProperty
 classBInstance.classAProperty
 
+let classBActingAsClassAInstance = classBInstance as ClassA   //upcast
+//classBActingAsClassAInstance.classBProperty
+
+class ClassC{
+}
+
+let arrayOfAnyObjects: [AnyObject] = [a, b, ClassC()]
+
+let definitelyClassAInstance = arrayOfAnyObjects[0] as! ClassA
+
+let maybeClassAInstance = arrayOfAnyObjects[0] as? ClassA
+maybeClassAInstance?.classAProperty
+
+(arrayOfClassInstances[1] as? ClassB)?.classAProperty
+
+
+// BIT WISE OPERATORS
+
+//binary notation - uses series of 0s and 1s 
+
+// each column is a base of 2 power
+
+//  32   16   8   4   2   1 = binary
+// 2^5 2^4 2^3 2^2 2^1 2^0
+
+//writing binary in swift prefix - 0b
+
+let ten = 0b001010
+
+let one = 0b1 //0001
+
+let two = one << 1 //0010
+
+let four =  one << 2 // 0100
+
+let sixteen = one << 4 // 010000
+
+let eight = sixteen >> 1 // 01000
+
+let zero: UInt8 = 0b00000
+
+~zero // 11111111
+
+let A = 0b111100
+let B = 0b001111
+
+A & B //  001100   are the only common bits between A & B
+
+A | B // 111111
+
+
+
+
+
+
+
+
 
 
 
