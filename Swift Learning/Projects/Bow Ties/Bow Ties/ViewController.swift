@@ -113,7 +113,7 @@ class ViewController: UIViewController {
         lastWornLabel.text = "Last worn: " + dateFormatter.stringFromDate(bowtie.lastWorn)
         favoriteLabel.hidden = !bowtie.isFavorite.boolValue
         
-        view.tintColor = bowtie.tintColor as UIColor
+        view.tintColor = bowtie.tintColor as! UIColor
     }
     
     func updateRating(numericString: String) {
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
         self.currentBowtie.rating = NSNumber(double: rating)
         
         var error: NSError?
-        if !self.managedContext.save(&error) {
+        if !self.managedContext.save&error) {
             if error!.code == NSValidationNumberTooSmallError || error!.code == NSValidationNumberTooLargeError {
                 rate(currentBowtie)
             }
