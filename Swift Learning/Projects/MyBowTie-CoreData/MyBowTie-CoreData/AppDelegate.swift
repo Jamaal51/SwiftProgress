@@ -16,7 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        // TEST - save the test bow tie
+//        let bowtie = NSEntityDescription.insertNewObjectForEntityForName("Bowtie", inManagedObjectContext: managedObjectContext) as! Bowtie
+//        
+//        bowtie.name = "My bow tie"
+//        bowtie.lastWorn = NSDate()
+//        
+//        do {
+//            try managedObjectContext.save()
+//        } catch let error as NSError {
+//            print("Saving error: \(error.localizedDescription)")
+//        }
+//        
+//        //retrieve test bow tie
+//        
+//        do {
+//            let request = NSFetchRequest(entityName: "Bowtie")
+//            let ties = try managedObjectContext.executeFetchRequest(request) as! [Bowtie]
+//            
+//            let sample: Bowtie = ties[0]
+//            print("Name:\(sample.name), Worn:\(sample.lastWorn)")
+//        } catch let error as NSError {
+//            print("Fetching error: \(error.localizedDescription)")
+//        }
+        
+        let viewController = window!.rootViewController as! ViewController
+        viewController.managedContext = managedObjectContext
+        
         return true
     }
 
