@@ -73,19 +73,26 @@ class View: UIView {
             "redView" : self.redView!,
             "blueView" : self.blueView!
         ]
-
         
-        let redViewHorizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[redView(100)]|", options:[],  metrics: nil, views: views)
-        let redViewVerticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[redView(100)]|", options: [], metrics: nil, views: views)
+        let redViewHorizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[redView]|", options:[],  metrics: nil, views: views)
+        let redViewVerticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-50-[redView(100)]", options: [], metrics: nil, views: views)
+        
+        let redBlueConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[redView][blueView]|", options: [], metrics: nil, views: views)
+        let blueViewHorizontalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[blueView]|", options: [], metrics: nil, views: views)
+        let blueViewVerticalConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|-50-[blueView(100)]", options: [], metrics: nil, views: views)
+      
+        let equalWidthsConstraint = NSLayoutConstraint(item: self.redView!, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.blueView!, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
         
         //"H:|[redView]|" horizontal bar stretches to superview
         
-        self.addConstraints(redViewHorizontalConstraint)
-        self.addConstraints(redViewVerticalConstraint)
+            self.addConstraint(equalWidthsConstraint)
+            self.addConstraints(redBlueConstraint)
+            self.addConstraints(redViewVerticalConstraint)
+            self.addConstraints(blueViewVerticalConstraint)
+
         
-        
-        
-        
+      
+        print("Ran")
         
         
         
