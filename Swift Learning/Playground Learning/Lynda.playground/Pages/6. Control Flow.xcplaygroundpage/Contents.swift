@@ -131,8 +131,26 @@ func updateSignForLifegaurdOnDuty(lifeguardOnDuty: String?){
 
 updateSignForLifegaurdOnDuty("Billy Bob")
 
-//using switch 
+//using switch  - go back an learn switch
 
-let die1 = [1, 2, 3, 4, 5, 6] 
+let die1 = [1, 2, 3, 4, 5, 6]
+
+// Using Labels
+
+var i = 0
+let hello = "Hello, sir"
+
+start: do {
+    i++
+    
+    do {
+        print(hello)
+        
+        if i < 3 {
+            continue start
+        }
+    }
+}
+
 
 //: [Next](@next)

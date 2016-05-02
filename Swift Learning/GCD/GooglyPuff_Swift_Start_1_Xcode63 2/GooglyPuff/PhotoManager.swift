@@ -47,25 +47,68 @@ class PhotoManager {
 }
 
   func downloadPhotosWithCompletion(completion: BatchPhotoDownloadingCompletionClosure?) {
-    var storedError: NSError?
-    for address in [OverlyAttachedGirlfriendURLString,
-                    SuccessKidURLString,
-                    LotsOfFacesURLString] {
+    
+//    dispatch_async(GlobalUserInitiatedQueue){ //1  use dispatch_async to place the entire method into a background queue to ensure you don’t block the main thread.
+//    var storedError: NSError?
+//    var downloadGroup = dispatch_group_create() //2 This creates a new dispatch group which behaves somewhat like a counter of the number of uncompleted tasks
+//    
+//    for address in [OverlyAttachedGirlfriendURLString,
+//                    SuccessKidURLString,
+//                    LotsOfFacesURLString] {
+//      let url = NSURL(string: address)
+//      dispatch_group_enter(downloadGroup) //3 dispatch_group_enter manually notifies a group that a task has started. You must balance out the number of dispatch_group_enter calls with the number of dispatch_group_leave calls or else your app will crash.
+//                      
+//      let photo = DownloadPhoto(url: url!) {
+//        image, error in
+//        if error != nil {
+//          storedError = error
+//        }
+//        dispatch_group_leave(downloadGroup) //4 Here you manually notify the group that this work is done. Again, you’re balancing all group enters with an equal amount of group leaves
+//      }
+//      PhotoManager.sharedManager.addPhoto(photo)
+//    }
+//      
+//      dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER) //5 dispatch_group_wait waits until either all of the tasks are complete or until the time expires. If the time expires before all events complete, the function will return a non-zero result. 
+//      
+//      dispatch_async(GlobalMainQueue){ //6 You then make a call back to the main queue to run your completion closure
+//    if let completion = completion { //7 run completion closure
+//      completion(error: storedError)
+//      }
+//    }
+//  }
+    
+    // 1 you don’t need to surround the method in a dispatch_async call since you’re not blocking the main thread
+    
+    var storedError: NSError!
+    var downloadGroup = dispatch_group_create()
+    
+    let addresses = [OverlyAttachedGirlfriendURLString,
+      SuccessKidURLString,
+      LotsOfFacesURLString]
+    
+    dispatch_apply(addresses.count, GlobalUserInitiatedQueue){
+      i in
+      let index = Int(i)
+      let address = addresses[index]
       let url = NSURL(string: address)
+      dispatch_group_enter(downloadGroup)
       let photo = DownloadPhoto(url: url!) {
         image, error in
-        if error != nil {
+        if let error = error {
           storedError = error
         }
+        dispatch_group_leave(downloadGroup)
       }
       PhotoManager.sharedManager.addPhoto(photo)
     }
-
-    if let completion = completion {
-      completion(error: storedError)
+    
+    dispatch_group_notify(downloadGroup, GlobalMainQueue) { // 2 serves as the asynchronous completion closure. This code executes when there are no more items left in the dispatch group and it’s the completion closure’s turn to run. You also specify on which queue to run your completion code. Here, the main queue is the one you want
+      
+      if let completion = completion {
+        completion(error: storedError)
+      }
     }
   }
-
   private func postContentAddedNotification() {
     NSNotificationCenter.defaultCenter().postNotificationName(PhotoManagerAddedContentNotification, object: nil)
   }
