@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftProjects" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcB-U6-DSQ">
+                                <rect key="frame" x="0.0" y="95" width="600" height="505"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96d-YX-3t1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="75"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dY-Lg-PJY" userLabel="TextField">
+                                        <rect key="frame" x="20" y="18" width="499" height="40"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Upo-Ds-E2K"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAz-w0-JiN">
+                                        <rect key="frame" x="532" y="23" width="48" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="searchTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Sg-gi-akZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.85909880049999998" green="0.85909880049999998" blue="0.85909880049999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FAz-w0-JiN" secondAttribute="trailing" constant="20" id="5vv-Ah-fl6"/>
+                                    <constraint firstAttribute="height" constant="75" id="KNJ-w5-H4I"/>
+                                    <constraint firstItem="7dY-Lg-PJY" firstAttribute="centerY" secondItem="96d-YX-3t1" secondAttribute="centerY" id="SbS-B6-4gK"/>
+                                    <constraint firstItem="FAz-w0-JiN" firstAttribute="centerY" secondItem="96d-YX-3t1" secondAttribute="centerY" id="ibe-dX-2cc"/>
+                                    <constraint firstItem="7dY-Lg-PJY" firstAttribute="leading" secondItem="96d-YX-3t1" secondAttribute="leading" constant="20" id="oWn-ih-chV"/>
+                                    <constraint firstItem="FAz-w0-JiN" firstAttribute="leading" secondItem="7dY-Lg-PJY" secondAttribute="trailing" constant="13" id="yzp-zh-vYm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="96d-YX-3t1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="46r-Xu-nZl"/>
+                            <constraint firstItem="EcB-U6-DSQ" firstAttribute="top" secondItem="96d-YX-3t1" secondAttribute="bottom" id="77f-yx-tnm"/>
+                            <constraint firstAttribute="trailing" secondItem="EcB-U6-DSQ" secondAttribute="trailing" id="Ef8-lK-0ki"/>
+                            <constraint firstItem="EcB-U6-DSQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="F74-3p-LXW"/>
+                            <constraint firstAttribute="trailing" secondItem="96d-YX-3t1" secondAttribute="trailing" id="H1R-I1-h6j"/>
+                            <constraint firstItem="EcB-U6-DSQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OEO-CK-p3Z"/>
+                            <constraint firstItem="96d-YX-3t1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g4t-TF-99d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EcB-U6-DSQ" secondAttribute="bottom" id="iZ1-AE-gvz"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="F74-3p-LXW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="7dY-Lg-PJY" id="Nkx-5J-zG0"/>
+                        <outlet property="webView" destination="EcB-U6-DSQ" id="3Kv-sH-eOF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="280" y="337"/>
+        </scene>
+    </scenes>
+</document>
